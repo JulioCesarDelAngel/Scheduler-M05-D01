@@ -5,6 +5,17 @@ var currentDay = document.getElementById("currentDay");
 var containerPage = document.getElementById("container");
 
 
+function messageBox(message){
+    var divmessagebox = document.getElementById("snackbar");
+    divmessagebox.textContent =message;
+    divmessagebox.className = "show";
+    setTimeout( function () {divmessagebox.className = divmessagebox.className.replace("show","");}, 2000
+  
+    );
+    return;
+  }
+
+
 function removeElement(elemento){
     while ( (elemento.firstChild != null) && elemento.firstChild){
         elemento.removeChild(elemento.firstChild);
@@ -113,6 +124,7 @@ containerPage.addEventListener("click", function(event){
             dataCrud("U", index, dataRow.value);
             dataCrud("R");
             listTask();
+            messageBox("Elemento guardado.");
         }
         
     }
